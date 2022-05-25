@@ -1,0 +1,43 @@
+<form>
+    <label for="title">
+        {{titulo}}
+    </label>
+    <input id="title" type = "text" name="title">
+    <br>
+    <label for="price">
+        {{titulo2}}
+    </label>
+    <input id="price" type = "text" name="price">
+    <br>
+    <label for="thumbnail">
+        {{titulo3}}
+    </label>
+    <input id="thumbnail" type = "text" name="thumbnail">
+    <input id="btn" type="button" value="Subir">
+    <br>
+</form>
+{{!-- 
+ {{#if productos}} --}}
+  <ul id="ulo">
+  {{#each productos}}
+    <li>{{title}} ${{price}} <img src={{thumbnail}} width="70" height="70"> </li>
+
+  {{/each}}
+  
+  </ul>
+    <br>
+  <div> 
+      <label>CHAT</label><br>
+      <input type="text" placeholder="E-mail" id="mail">
+      <input type="button" value="Log In" id="logearse">
+      <ul id="contenedorDeMensajes">
+          {{#each mensajes}}
+            <li>{{email}} {{date}} {{msssj}}</li>
+            
+          {{/each}}
+      </ul>
+      <input type="text" placeholder="Mensaje" id="barraDeMensaje">
+      <input type="button" value="Enviar" id="botonDeEnviar">
+  </div>
+
+    
