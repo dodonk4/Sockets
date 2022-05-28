@@ -41,11 +41,13 @@ io.on('connection', (socket)=>{
 
     socket.on('prod', (data)=>{
         productos.push(data);
+        console.log(productos);
         io.sockets.emit(console.log(data))
     })
 
     socket.on('mensaje', (data)=>{
         mensajes.push(data);
+        console.log(mensajes);
         io.sockets.emit(console.log(data));
 
     })
