@@ -13,3 +13,4 @@ butto.addEventListener('click', event =>{
     socket.emit('prod', {title, price, thumbnail})
     
 })
+
