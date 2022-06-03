@@ -26,17 +26,22 @@ logearse.addEventListener('click', ()=>{
 botonDeEnviar.addEventListener('click', event=>{
     if(barraDeMensaje.value != ""){
     console.log(barraDeMensaje.value);
-    const msj = document.createElement('li');
     let date1 = new Date();
     let date = date1.toISOString().split('T')[0];
     const msssj = barraDeMensaje.value;
     const NewMsj = {"email": email, "date": date, "msssj": msssj}
     mensajes.push(NewMsj);
-    msj.innerHTML = `<p style ="color: blue; font-weight: bold; display: inline-block;">${email}</p> <p style ="color: brown; display: inline-block;">${date1.toISOString().split('T')[0]}</p> <p style ="color: green; font-style: italic; display: inline-block;">${msssj}</p>`;
-    contenedorDeMensajes.append(msj);
     
     barraDeMensaje.value = "";
     socket.emit('mensaje', {email, date, msssj} )
 
     }
+})
+
+socket.on('mensaje', function(data){
+    let date1 = new Date();
+    let date = date1.toISOString().split('T')[0];
+    const msj = document.createElement('li');
+    msj.innerHTML = `<p style ="color: blue; font-weight: bold; display: inline-block;">${data.email}</p> <p style ="color: brown; display: inline-block;">${date1.toISOString().split('T')[0]}</p> <p style ="color: green; font-style: italic; display: inline-block;">${data.msssj}</p>`;
+    contenedorDeMensajes.append(msj);
 })
