@@ -3,11 +3,14 @@ const express = require('express');
 const { Server: HttpServer } = require('http');
 const { Server: IOServer } = require('socket.io');
 const { engine } = require('express-handlebars');
-const { databaseProductos } = require('./public/productos');
-const { databaseMensajes } = require('./public/mensajes');
+const Contenedor = require('./public/productos');
+const Mensajeria = require('./public/mensajes');
 
-const productos = databaseProductos.obtenerTodos();
-const mensajes = databaseMensajes.obtenerTodos();
+const caja = new Contenedor();
+const mensajeria = new Mensajeria();
+
+const productos = caja.obtenerTodos();
+const mensajes = mensajeria.obtenerTodos();
 
 const app = express();
 

@@ -30,7 +30,7 @@ botonDeEnviar.addEventListener('click', event=>{
     let date = date1.toISOString().split('T')[0];
     const msssj = barraDeMensaje.value;
     const NewMsj = {"email": email, "date": date, "msssj": msssj}
-    mensajes.push(NewMsj);
+    // mensajes.push(NewMsj);
     
     barraDeMensaje.value = "";
     socket.emit('mensaje', {email, date, msssj} )
